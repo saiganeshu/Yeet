@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Dimensions, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import Video from 'react-native-video';
 import Animated, {
