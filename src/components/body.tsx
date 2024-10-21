@@ -1,44 +1,21 @@
-import { useRef, useState } from "react";
-import { StyleSheet, Text, View,ScrollView, Dimensions, FlatList, Animated } from "react-native";
-import Video from "react-native-video";
-import Carousel from "react-native-reanimated-carousel";
-const Body = ()=>{
-
-  return(
-    <ScrollView>
-    <View style={{height:400,width:'100%'}}>
-    <View>
-        <Text>2024 Budget Discussions in Loksabha</Text>
-        <View style={{display:"flex",flexDirection:'row'}}>
-      <Video
-        source={require('../assets/videos/t-1.mp4')}
-        resizeMode="contain"
-        controls={true}
-        style={styles.video} // Set style for video
-      />
-      <Video
-        source={require('../assets/videos/t-2.mp4')}
-        resizeMode="contain"
-        controls={true}
-        style={styles.video} // Set style for video
-      />
-      <Video
-        source={require('../assets/videos/t-3.mp4')}
-        resizeMode="contain"
-        controls={true}
-        style={styles.video} // Set style for video
-      />
-    </View>
-    </View>
-    </View>
-    </ScrollView>
-)
+import * as React from 'react';
+import { View } from 'react-native';
+import ParallaxVideoCarousel from './parallax-video';
+function Body() {
+    return (
+        <View  style={{
+            marginLeft: 50,
+            marginRight: 30,
+            height: 150,
+            width: 300,
+            borderColor: '#808080', // Black border color
+            borderWidth: 1, 
+            borderRadius:8,
+            overflow: 'hidden', 
+          }}>
+            <ParallaxVideoCarousel />
+        </View>
+    );
 }
 
-const styles = StyleSheet.create({
-    video: {
-      width: '100%', // Makes video full width of its container
-      height: 200,   // You can adjust the height as needed
-    },
-  });
 export default Body;

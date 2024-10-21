@@ -5,12 +5,10 @@
  * @format
  */
 import React from 'react';
-import Video from 'react-native-video';
 import {
-  StyleSheet,
-  Text,
-  View,
+  StyleSheet
 } from 'react-native';
+import 'react-native-reanimated';
 import Header from './src/components/header';
 import Body from './src/components/body';
 import Footer from './src/components/footer';
