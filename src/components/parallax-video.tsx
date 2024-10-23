@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions,TouchableWithoutFeedback} from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 import Video from 'react-native-video';
 import Animated, {
@@ -7,7 +7,6 @@ import Animated, {
   useAnimatedStyle,
   Extrapolate,
 } from 'react-native-reanimated';
-
 
 interface CarouselItem {
     id: number;
@@ -25,14 +24,26 @@ interface CarouselItem {
 
 
   function ParallaxVideoCarousel() {
-    const width = 300;
+    const width = Dimensions.get('window').width;
     const [activeIndex, setActiveIndex] = React.useState(0);
-  
+    const carouselRef = React.useRef<any>(null);
+
+    const handleVideoTap = (index: number) => {
+      debugger;
+      if (carouselRef.current) {
+        carouselRef.current.scrollTo({ index, animated: true });
+      }
+    };
     return (
-      <View>
+      <View style={{
+        height: 130,
+        width: width,
+      }}>
+      <View style={styles.carouselContainer}>
         <Carousel
-          width={350}
-          height={250}
+        ref={carouselRef}
+          width={width}
+          height={200}
           data={carouselData}
           autoPlay={true}
           autoPlayInterval={5000}
@@ -43,31 +54,45 @@ interface CarouselItem {
           mode="horizontal-stack"
           modeConfig={{
             snapDirection: 'left',
-            stackInterval:110,
+            stackInterval:120,
           }}
           renderItem={({ item, index, animationValue }) => {
             const containerStyle = useAnimatedStyle(() => {
               const scale = interpolate(
                 animationValue.value,
                 [-1, 0, 1],
-                [0.6, 1, 0.6], 
+                [0.8, 2.5, 0.8], 
                 Extrapolate.CLAMP
               );
               const translateX = interpolate(
                 animationValue.value,
+                [ -1,0,1],
+                [-width * 0.4, 0, width * 0.4], 
+                Extrapolate.CLAMP
+              );
+              const blurIntensity = interpolate(
+                animationValue.value,
                 [-1, 0, 1],
-                [-width * 0.2, 0, width * 0.2], 
+                [15, 0, 15], // Adjust blur intensity here
                 Extrapolate.CLAMP
               );
   
               return {
                 transform: [{ scale }, { translateX }],
+                opacity: interpolate(
+                  animationValue.value,
+                  [-1, 0, 1],
+                  [0.5, 1, 0.5],
+                  Extrapolate.CLAMP
+                ),
+                blurIntensity,
               };
             });
   
             const isActive = activeIndex === index;
   
             return (
+              <TouchableWithoutFeedback onPress={() => handleVideoTap(index)}>
               <Animated.View style={[styles.itemContainer, containerStyle]}>
                 <Video
                   source={item.videoSrc}
@@ -76,11 +101,14 @@ interface CarouselItem {
                   paused={!isActive} 
                   repeat={true} 
                   controls={false} 
+                  muted={true}
                 />
               </Animated.View>
+              </TouchableWithoutFeedback>
             );
           }}
         />
+      </View>
       </View>
     );
   }
@@ -88,16 +116,22 @@ interface CarouselItem {
   export default ParallaxVideoCarousel;
 
   const styles = StyleSheet.create({
+    carouselContainer: {
+      paddingTop:20,
+      justifyContent: 'center', 
+      alignItems: 'center',
+    },
     itemContainer: {
-      width: '50%',
-      height: '35%',
+      paddingLeft:70,
+      width: 160, 
+      height: 60,
       justifyContent: 'center',
       alignItems: 'center',
     },
     video: {
       width: '100%',
       height: '100%',
-      borderRadius: 10, 
+      borderRadius: 10
     },
   });
   

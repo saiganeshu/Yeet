@@ -9,16 +9,17 @@ import {
   StyleSheet
 } from 'react-native';
 import 'react-native-reanimated';
-import Header from './src/components/header';
 import Body from './src/components/body';
-import Footer from './src/components/footer';
+import Add from './src/components/add';
+import Group from './src/components/group';
+import Home from './src/components/home';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { enableScreens } from 'react-native-screens';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Search from './src/components/search';
 enableScreens();
 const Tab = createBottomTabNavigator();
 function App(){
@@ -34,25 +35,25 @@ function App(){
           paddingBottom:3
         }
       }}>
-        <Tab.Screen name="Home" component={Header} options={{
+        <Tab.Screen name="Home" component={Home} options={{
           tabBarIcon:({focused})=>(
-          <Entypo name="home" size={20} color="#70030e" />
-          )
+          <Entypo name="home" size={24} color="#ce375a" />
+          ), headerShown: false 
         }}/>
-        <Tab.Screen name="Add" component={Body} options={{
+        <Tab.Screen name="Add" component={Add} options={{
           tabBarIcon:({focused})=>(
-          <MaterialIcons name="add" size={30} color="#70030e" />
-          )
+          <MaterialIcons name="add" size={24} color="#ce375a" />
+          ), headerShown: false 
         }} />
-        <Tab.Screen name="Group" component={Footer} options={{
+        <Tab.Screen name="Group" component={Group} options={{
           tabBarIcon:({focused})=>(
-          <Icon name="people" size={30} color="#70030e"/>
-          )
+          <Icon name="people" size={24} color="#ce375a"/>
+          ), headerShown: false 
         }}/>
-        <Tab.Screen name="Search" component={Body} options={{
+        <Tab.Screen name="Search" component={Search} options={{
           tabBarIcon:({focused})=>(
-          <Icon name="search" size={30} color="#70030e"/>
-          )
+          <Icon name="search" size={24} color="#ce375a"/>
+          ), headerShown: false 
         }}/>
       </Tab.Navigator>
     </NavigationContainer>
