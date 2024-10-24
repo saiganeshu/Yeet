@@ -21,19 +21,20 @@ interface CarouselItem {
     { id: 5, videoSrc: require('../assets/videos/t-5.mp4') },
   ];
   
-
-
   function ParallaxVideoCarousel() {
+    
     const width = Dimensions.get('window').width;
     const [activeIndex, setActiveIndex] = React.useState(0);
     const carouselRef = React.useRef<any>(null);
 
-    const handleVideoTap = (index: number) => {
-      debugger;
+    function handleVideoPress (index: number)  {
       if (carouselRef.current) {
+        debugger;
         carouselRef.current.scrollTo({ index, animated: true });
+        setActiveIndex(index); 
       }
     };
+
     return (
       <View style={{
         height: 130,
@@ -41,7 +42,7 @@ interface CarouselItem {
       }}>
       <View style={styles.carouselContainer}>
         <Carousel
-        ref={carouselRef}
+          ref={carouselRef}
           width={width}
           height={200}
           data={carouselData}
@@ -70,12 +71,6 @@ interface CarouselItem {
                 [-width * 0.4, 0, width * 0.4], 
                 Extrapolate.CLAMP
               );
-              const blurIntensity = interpolate(
-                animationValue.value,
-                [-1, 0, 1],
-                [15, 0, 15], // Adjust blur intensity here
-                Extrapolate.CLAMP
-              );
   
               return {
                 transform: [{ scale }, { translateX }],
@@ -85,14 +80,15 @@ interface CarouselItem {
                   [0.5, 1, 0.5],
                   Extrapolate.CLAMP
                 ),
-                blurIntensity,
               };
             });
   
             const isActive = activeIndex === index;
   
             return (
-              <TouchableWithoutFeedback onPress={() => handleVideoTap(index)}>
+              <TouchableWithoutFeedback onPress={()=>{
+                console.log(index);
+                handleVideoPress(index)}}>
               <Animated.View style={[styles.itemContainer, containerStyle]}>
                 <Video
                   source={item.videoSrc}

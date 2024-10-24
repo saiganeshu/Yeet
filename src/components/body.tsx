@@ -29,13 +29,13 @@ function Body() {
       width: '100%',
       borderColor: '#808080',
       borderBottomWidth: 3,
-      overflow: 'hidden',
+      // overflow: 'hidden',
       paddingTop:5
     }}>
         <View style={{
           height: 330,
           width: '100%',
-          overflow: 'hidden',
+          // overflow: 'hidden',
           paddingLeft:10
         }}>
           <View style={{display:'flex',flexDirection:'row',}}>
