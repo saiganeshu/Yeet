@@ -7,9 +7,8 @@ import React from "react";
         
         <View>
             <Header/>
-            {/* <View style={{height: 50, width: '100%', justifyContent: 'center', alignItems: 'center'}}> */}
-            <View className="h-50 w-100 justify-center items-center">
-                <Text style={{fontWeight: 'bold', color: '#000000'}}>
+            <View className="h-[50px] w-[100px] justify-center items-center">
+                <Text className="font-bold text-black">
                     Search Component
                 </Text>
             </View>
