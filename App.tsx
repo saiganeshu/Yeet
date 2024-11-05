@@ -36,22 +36,22 @@ function App(){
         }
       }}>
         <Tab.Screen name="Home" component={Home} options={{
-          tabBarIcon:({focused})=>(
+          tabBarIcon:()=>(
           <Entypo name="home" size={24} color="#ce375a" />
           ), headerShown: false 
         }}/>
         <Tab.Screen name="Add" component={Add} options={{
-          tabBarIcon:({focused})=>(
+          tabBarIcon:()=>(
           <MaterialIcons name="add" size={24} color="#ce375a" />
           ), headerShown: false 
         }} />
         <Tab.Screen name="Group" component={Group} options={{
-          tabBarIcon:({focused})=>(
+          tabBarIcon:()=>(
           <Icon name="people" size={24} color="#ce375a"/>
           ), headerShown: false 
         }}/>
         <Tab.Screen name="Search" component={Search} options={{
-          tabBarIcon:({focused})=>(
+          tabBarIcon:()=>(
           <Icon name="search" size={24} color="#ce375a"/>
           ), headerShown: false 
         }}/>

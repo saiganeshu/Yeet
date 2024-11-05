@@ -37,14 +37,15 @@ interface CarouselItem {
 
     return (
       <View style={{
-        height: 130,
+        height: 140,
         width: width,
+        paddingTop:30
       }}>
       <View style={styles.carouselContainer}>
         <Carousel
           ref={carouselRef}
           width={width}
-          height={200}
+          height={130}
           data={carouselData}
           autoPlay={true}
           autoPlayInterval={5000}
@@ -55,20 +56,20 @@ interface CarouselItem {
           mode="horizontal-stack"
           modeConfig={{
             snapDirection: 'left',
-            stackInterval:120,
+            stackInterval:100,
           }}
           renderItem={({ item, index, animationValue }) => {
             const containerStyle = useAnimatedStyle(() => {
               const scale = interpolate(
                 animationValue.value,
                 [-1, 0, 1],
-                [0.8, 2.5, 0.8], 
+                [0.8, 1, 0.8], 
                 Extrapolate.CLAMP
               );
               const translateX = interpolate(
                 animationValue.value,
                 [ -1,0,1],
-                [-width * 0.4, 0, width * 0.4], 
+                [-width * 0.1, 0, width * 0.1], 
                 Extrapolate.CLAMP
               );
   
@@ -77,7 +78,7 @@ interface CarouselItem {
                 opacity: interpolate(
                   animationValue.value,
                   [-1, 0, 1],
-                  [0.5, 1, 0.5],
+                  [0.1, 1, 0.1],
                   Extrapolate.CLAMP
                 ),
               };
@@ -113,7 +114,7 @@ interface CarouselItem {
 
   const styles = StyleSheet.create({
     carouselContainer: {
-      paddingTop:20,
+      paddingTop:40,
       justifyContent: 'center', 
       alignItems: 'center',
     },

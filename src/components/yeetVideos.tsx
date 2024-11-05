@@ -124,6 +124,20 @@ export default function YeetVideos(){
                   )}
                 </View>
 
+                {/* uservideo */}
+                <Video 
+                source={require('../assets/videos/t-1.mp4')} 
+                style={{
+                  width: screenWidth - 40,
+                  height: 180,
+                marginBottom:5}} 
+                resizeMode="cover" 
+                paused={false}
+                repeat={true}
+              />
+
+
+
                 {/* Row 3 */}
                 <View style={{ height: 63, width: '100%', borderColor: '#808080', marginBottom: 5, flexDirection: 'row', justifyContent: 'space-evenly' }}>
                   {visibleVideosRow3.map((index, i) => (
