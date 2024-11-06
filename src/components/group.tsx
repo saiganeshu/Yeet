@@ -1,16 +1,15 @@
 import { Text, View } from "react-native";
 import Header from "./header";
 
- export default function Group(){
-    return(
-        
+export default function Group() {
+    return (
         <View>
-            <Header/>
-            <View style={{height: 50, width: '100%', justifyContent: 'center', alignItems: 'center'}}>
-                <Text style={{fontWeight: 'bold', color: '#000000'}}>
+            <Header />
+            <View className="h-12 w-full flex justify-center items-center">
+                <Text className="font-bold text-black">
                     Group Component
                 </Text>
             </View>
         </View>
-    )
- }
+    );
+}
