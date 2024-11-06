@@ -36,12 +36,8 @@ interface CarouselItem {
     };
 
     return (
-      <View style={{
-        height: 140,
-        width: width,
-        paddingTop:30
-      }}>
-      <View style={styles.carouselContainer}>
+        <View className='w-full h-[140px] pt-[30px]'>
+      <View className='pt-[40px] items-center justify-center'>
         <Carousel
           ref={carouselRef}
           width={width}
@@ -90,10 +86,10 @@ interface CarouselItem {
               <TouchableWithoutFeedback onPress={()=>{
                 console.log(index);
                 handleVideoPress(index)}}>
-              <Animated.View style={[styles.itemContainer, containerStyle]}>
+              <Animated.View className="pl-[70px] w-[160px] h-[60px] justify-center items-center" style={[containerStyle]}>
                 <Video
                   source={item.videoSrc}
-                  style={styles.video}
+                  className="w-full h-full rounded-[10px]"
                   resizeMode="cover"
                   paused={!isActive} 
                   repeat={true} 
