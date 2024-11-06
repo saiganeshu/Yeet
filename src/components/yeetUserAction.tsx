@@ -36,106 +36,55 @@ export default function YeetUserActions(){
     };
       
     return(
-        <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',margin:0}}>
-           <View  style={{display:'flex',flexDirection:'row',justifyContent:'space-evenly',width:190}}>
-                <TouchableOpacity style={{display:'flex',flexDirection:'row',justifyContent:'space-evenly'}}>
+        <View className="flex-row justify-between m-0">
+           <View  className="flex-row justify-evenly w-[190px]">
+                <TouchableOpacity className="flex-row justify-evenly">
                 <AntDesign name="like1" size={25} color="#000000" />   
-                <Text style={{paddingTop:5}}>45</Text>
+                <Text className="pt-1">45</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{display:'flex',flexDirection:'row'}}>
+                <TouchableOpacity  className="flex-row">
                 <FontAwesome6 name="bomb" size={25} color="#000000" />
-                <Text  style={{paddingTop:5}}>25</Text>
+                <Text  className="pt-1">25</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{display:'flex',flexDirection:'row'}}>
+                <TouchableOpacity  className="flex-row">
                 <MaterialIcons name="groups" size={30} color="#000000" />
-                <Text  style={{paddingTop:5}}>25</Text>
+                <Text  className="pt-1 pl-1">25</Text>
                 </TouchableOpacity>
            </View>
-           <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',paddingRight:15}}>
+           <View className="flex-row justify-between pr-4">
                 <TouchableOpacity onPress={onPressY}>
-                    <Text style={styles.yButtonText}>Y</Text>
+                    <Text className="text-black pr-1 text-lg">Y</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <TouchableOpacity className="flex-row items-center">
                 <Entypo name="share" size={15} color="#000000" />
                 </TouchableOpacity>
            </View>
+
+           
              {/* Custom Modal for buttons */}
-        <Modal
-            animationType="slide"
-            transparent={true}
-            visible={isModalVisible}
-            onRequestClose={() => setIsModalVisible(false)}
-        >
-            <View style={styles.modalOverlay}>
-                
-            <TouchableOpacity style={styles.closeButton} onPress={() => setIsModalVisible(false)}>
-              <Text style={styles.closeButtonText}>X</Text>
-            </TouchableOpacity>
-            <View style={styles.modalContent}>
-            
-                <TouchableOpacity style={styles.modalButton} onPress={handlePickFile}>
-                <Text style={styles.modalButtonText}>Yeet Offline</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.modalButton} onPress={handleSimpleButtonPress}>
-                <Text style={styles.modalButtonText}>Yeet  Online</Text>
-                </TouchableOpacity>
-            </View>
-            </View>
-        </Modal>
+             <Modal
+  animationType="slide"
+  transparent={true}
+  visible={isModalVisible}
+  onRequestClose={() => setIsModalVisible(false)}
+>
+  <View className="flex-1 justify-center items-center bg-black/50">    
+    <View className="bg-white p-5 rounded-lg w-[80%] max-w-[300px]">
+      <TouchableOpacity className="absolute top-2 right-2 p-1" onPress={() => setIsModalVisible(false)}>
+        <MaterialIcons name="cancel" size={25} color="#000000" />
+      </TouchableOpacity>    
+      <View className="flex-row justify-around items-center mt-4 pt-3">
+        <TouchableOpacity className="bg-[#ce375a] p-4 rounded-md mx-2" onPress={handlePickFile}>
+          <Text className="text-white text-base font-bold">Yeet Offline</Text>
+        </TouchableOpacity>
+        <TouchableOpacity className="bg-[#ce375a] p-4 rounded-md mx-2" onPress={handleSimpleButtonPress}>
+          <Text className="text-white text-base font-bold">Yeet Online</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  </View>
+</Modal>
+
         </View>
     )
 }
-
-
-
-const styles = StyleSheet.create({
-    actionButton: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "space-evenly",
-    },
-    actionText: {
-      paddingTop: 5,
-    },
-    yButtonText: {
-      color: "#000000",
-      paddingRight: 5,
-      fontSize: 20,
-    },
-    modalOverlay: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-    //   backgroundColor: "rgba(0, 0, 0, 0.5)",
-    },
-    modalContent: {
-      flexDirection: "row",
-      justifyContent: "space-around",
-      alignItems: "center",
-      backgroundColor: "#fff",
-      padding: 20,
-      borderRadius: 10,
-      width: "80%",
-      position: "relative",
-    },
-    modalButton: {
-      backgroundColor: "#ce375a",
-      padding: 15,
-      borderRadius: 5,
-      marginHorizontal: 10,
-    },
-    modalButtonText: {
-      color: "#fff",
-      fontSize: 16,
-      fontWeight: "bold",
-    },
-    closeButton: {
-        alignSelf: "flex-end",
-        padding: 5,
-      },
-      closeButtonText: {
-        fontSize: 18,
-        fontWeight: "bold",
-        color: "#000",
-      },
-  });

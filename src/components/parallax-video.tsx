@@ -36,12 +36,8 @@ interface CarouselItem {
     };
 
     return (
-      <View style={{
-        height: 140,
-        width: width,
-        paddingTop:30
-      }}>
-      <View style={styles.carouselContainer}>
+      <View className="h-36 pt-7" style={{ width: width }}>
+      <View className="pt-10 justify-center items-center">
         <Carousel
           ref={carouselRef}
           width={width}
@@ -51,7 +47,7 @@ interface CarouselItem {
           autoPlayInterval={5000}
           scrollAnimationDuration={1000}
           onSnapToItem={(index) => {
-            setActiveIndex(index);
+          setActiveIndex(index);
           }}
           mode="horizontal-stack"
           modeConfig={{
@@ -90,10 +86,10 @@ interface CarouselItem {
               <TouchableWithoutFeedback onPress={()=>{
                 console.log(index);
                 handleVideoPress(index)}}>
-              <Animated.View style={[styles.itemContainer, containerStyle]}>
+              <Animated.View  className="pl-16 w-40 h-16 justify-center items-center" style={[containerStyle]}>
                 <Video
                   source={item.videoSrc}
-                  style={styles.video}
+                  className="w-full h-full rounded-lg"
                   resizeMode="cover"
                   paused={!isActive} 
                   repeat={true} 
@@ -112,23 +108,4 @@ interface CarouselItem {
   
   export default ParallaxVideoCarousel;
 
-  const styles = StyleSheet.create({
-    carouselContainer: {
-      paddingTop:40,
-      justifyContent: 'center', 
-      alignItems: 'center',
-    },
-    itemContainer: {
-      paddingLeft:70,
-      width: 160, 
-      height: 60,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    video: {
-      width: '100%',
-      height: '100%',
-      borderRadius: 10
-    },
-  });
   
