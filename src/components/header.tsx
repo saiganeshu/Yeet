@@ -1,4 +1,5 @@
 import React from "react";
+import tailwind from 'tailwind-rn';
 import { Image, View } from "react-native";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Icon from 'react-native-vector-icons/Ionicons';
