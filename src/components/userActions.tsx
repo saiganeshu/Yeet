@@ -13,29 +13,29 @@ export default function UserActions(){
     };
 
 return( 
-    <View style={{ marginBottom: 5, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center',paddingTop:10 }}>
+    <View className="mb-[5px] flex flex-row justify-evenly items-center pt-[10px]">
             <View >
-              <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center',marginLeft:5 }}>
+              <TouchableOpacity className="flex-row items-center ml-[5px]">
               <EvilIcons name="like" size={25} color="#000000" />     
-              <Text  style={{ color: '#000000', }}>Like</Text>
+              <Text className="text-black">Like</Text>
               </TouchableOpacity>
               </View>
-            <View >
-            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center'}}>
+            <View>
+            <TouchableOpacity className="flex-row items-center">
               <EvilIcons name="comment" size={25} color="#000000" /> 
-              <Text  style={{ color: '#000000', }}>Comment</Text>
+              <Text className="text-black">Comment</Text>
               </TouchableOpacity >
             </View>
             <View>
-              <TouchableOpacity onPress={handleReplaceComponent} style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text style={{ color: '#000000',paddingRight:5,fontSize:17 }}>Y</Text>
-                <Text  style={{ color: '#000000', }}>Yeet</Text>
+              <TouchableOpacity onPress={handleReplaceComponent} className="flex-row items-center">
+                <Text className="text-black pr-[5px] text-[17px]">Y</Text>
+                <Text className="txt-black">Yeet</Text>
               </TouchableOpacity>
             </View>
-            <View  style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View className="flex-row items-center">
+            <TouchableOpacity className="flex-row items-center">
               <Entypo name="share" size={15} color="#000000" />
-              <Text  style={{ color: '#000000',paddingLeft:5 }}>Share</Text>
+              <Text className="text-black pl-[5px]">Share</Text>
             </TouchableOpacity>
             </View> 
           </View>
