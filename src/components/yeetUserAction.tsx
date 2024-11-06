@@ -36,26 +36,27 @@ export default function YeetUserActions(){
     };
       
     return(
-        <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',margin:0}}>
-           <View  style={{display:'flex',flexDirection:'row',justifyContent:'space-evenly',width:190}}>
-                <TouchableOpacity style={{display:'flex',flexDirection:'row',justifyContent:'space-evenly'}}>
+        <View className="flex flex-row justify-between m-0">
+           <View className="flex flex-row justify-evenly w-[190px]">
+                <TouchableOpacity className="flex flex-row justify-evenly">
                 <AntDesign name="like1" size={25} color="#000000" />   
-                <Text style={{paddingTop:5}}>45</Text>
+                <Text className="pt-[5px]">45</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{display:'flex',flexDirection:'row'}}>
+                <TouchableOpacity className="flex flex-row">
                 <FontAwesome6 name="bomb" size={25} color="#000000" />
-                <Text  style={{paddingTop:5}}>25</Text>
+                <Text className="pt-[5px]">25</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{display:'flex',flexDirection:'row'}}>
+                <TouchableOpacity className="flex flex-row">
                 <MaterialIcons name="groups" size={30} color="#000000" />
-                <Text  style={{paddingTop:5}}>25</Text>
+                <Text className="pt-[5px]">25</Text>
                 </TouchableOpacity>
            </View>
-           <View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',paddingRight:15}}>
+           <View className="flex flex-row justify-between pr-[15px]">
                 <TouchableOpacity onPress={onPressY}>
-                    <Text style={styles.yButtonText}>Y</Text>
+                    {/* <Text style={styles.yButtonText}>Y</Text> */}
+                    <Text className="text-black pr-[5px] text-[20px]">Y</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <TouchableOpacity className="flex-row items-center">
                 <Entypo name="share" size={15} color="#000000" />
                 </TouchableOpacity>
            </View>
@@ -66,18 +67,18 @@ export default function YeetUserActions(){
             visible={isModalVisible}
             onRequestClose={() => setIsModalVisible(false)}
         >
-            <View style={styles.modalOverlay}>
+            <View className="flex-1 justify-center items-center">
                 
-            <TouchableOpacity style={styles.closeButton} onPress={() => setIsModalVisible(false)}>
-              <Text style={styles.closeButtonText}>X</Text>
+            <TouchableOpacity className="self-end p-[5px]"onPress={() => setIsModalVisible(false)}>
+              <Text className="text-[18px] font-bold text-black">X</Text>
             </TouchableOpacity>
-            <View style={styles.modalContent}>
+            <View className="flex-row justify-around items-center text-white p-[20px] rounded-[10px] w-4/5 relative">
             
-                <TouchableOpacity style={styles.modalButton} onPress={handlePickFile}>
-                <Text style={styles.modalButtonText}>Yeet Offline</Text>
+                <TouchableOpacity className="bg-[#ce375a] p-[15px] rounded-[5px] mx-[10px]" onPress={handlePickFile}>
+                <Text className="text-white text-[16px] font-bold">Yeet Offline</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.modalButton} onPress={handleSimpleButtonPress}>
-                <Text style={styles.modalButtonText}>Yeet  Online</Text>
+                <TouchableOpacity className="bg-[#ce375a] p-[15px] rounded-[5px] mx-[10px]" onPress={handleSimpleButtonPress}>
+                <Text className="text-white text-[16px] font-bold">Yeet  Online</Text>
                 </TouchableOpacity>
             </View>
             </View>
@@ -97,45 +98,4 @@ const styles = StyleSheet.create({
     actionText: {
       paddingTop: 5,
     },
-    yButtonText: {
-      color: "#000000",
-      paddingRight: 5,
-      fontSize: 20,
-    },
-    modalOverlay: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-    //   backgroundColor: "rgba(0, 0, 0, 0.5)",
-    },
-    modalContent: {
-      flexDirection: "row",
-      justifyContent: "space-around",
-      alignItems: "center",
-      backgroundColor: "#fff",
-      padding: 20,
-      borderRadius: 10,
-      width: "80%",
-      position: "relative",
-    },
-    modalButton: {
-      backgroundColor: "#ce375a",
-      padding: 15,
-      borderRadius: 5,
-      marginHorizontal: 10,
-    },
-    modalButtonText: {
-      color: "#fff",
-      fontSize: 16,
-      fontWeight: "bold",
-    },
-    closeButton: {
-        alignSelf: "flex-end",
-        padding: 5,
-      },
-      closeButtonText: {
-        fontSize: 18,
-        fontWeight: "bold",
-        color: "#000",
-      },
   });
