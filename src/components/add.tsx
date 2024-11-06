@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import Header from "./header";
 import Body from "./body";
-import tw from 'tailwind-rn';
+import tailwind from 'tailwind-rn';
 export default function YourComponent() {
     return (
         <View>
