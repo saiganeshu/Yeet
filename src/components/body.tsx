@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import tw from 'tailwind-rn';
 import { Text, View, TouchableOpacity, Image, TextInput, FlatList } from 'react-native';
 import ParallaxVideoCarousel from './parallax-video';
 import Video from 'react-native-video';
