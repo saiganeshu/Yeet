@@ -1,16 +1,15 @@
 import { ScrollView, View } from "react-native";
 import Header from "./header";
-import Body from "./body";
+import Footer from "./footer";  // Assuming you want to add Footer below the Body
 
- export default function Home(){
-    return(
-    
-        <View style={{flex:1}}>
-            <Header/>
+export default function Home() {
+    return (
+        <View className="flex-1">
+            <Header />
             <ScrollView>
-                <Body/>
+                <Body />
             </ScrollView>
-            
+            <Footer />  {/* Add Footer component here */}
         </View>
-    )
- }
+    );
+}
