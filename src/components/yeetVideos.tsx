@@ -88,22 +88,22 @@ export default function YeetVideos(){
       isYeetComponent ? (
         <View>
           <ScrollView>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', height: 40, width: '100%', margin: 10, paddingRight: 30 }}>
-              <Text style={{ color: "#000000", fontWeight: 'bold' }}>2024 Budget Discussions in Loksabha</Text>
+            <View className="flex-row justify-between items-center h-[40px] w-full m-[10px] pr-[30px]">
+              <Text className="text-black font-bold">2024 Budget Discussions in Loksabha</Text>
               <TouchableOpacity onPress={BackToHomePage}>
                 <Icon name="arrow-back-circle-outline" size={30} color="#a30d0d" />
               </TouchableOpacity>
             </View>
 
-            <View style={{ height: 800, width: screenWidth - 20, borderColor: '#808080', margin: 10, borderTopWidth: 1, borderLeftWidth: 1, borderRightWidth: 1, borderBottomWidth: 0 }}>
-              <View style={{ margin: 10 }}>
+            <View className="h-[800px] w-[screenWidth - 20] border-custom-gray m-[10px] border-t border-x border-x border-y-0">
+              <View className="m-[10px]">
                 {/* Row 1 */}
-                <View style={{ height: 63, width: '100%', borderColor: '#808080', marginBottom: 5, flexDirection: 'row', justifyContent: 'space-evenly' }}>
+                <View className="h-[63px] w-full border-custom-gray mb-[5px] flex-row justify-evenly">
                   {visibleVideosRow1.map((index, i) => (
                     <Video
                       key={`row1-${index}-${i}`}
                       source={videos[index]}
-                      style={{ height: 60, width: 115 }}
+                      className="h-[60px] w-[115px]"
                       resizeMode="cover"
                       paused={paused}
                     />
@@ -111,12 +111,12 @@ export default function YeetVideos(){
                 </View>
 
                 {/* Middle Row */}
-                <View style={{ height: 180, width: '100%', borderColor: '#808080',  marginBottom: 5, justifyContent: 'center', alignItems: 'center' }}>
+                <View className="h-[180px] w-full border-custom-gray mb-[5px] justify-center items-center">
                   {middleVideoIndex !== null && (
                     <Video
                       key={`middle-${middleVideoIndex}-${Date.now()}`} // Unique key for rerender
                       source={videos[middleVideoIndex]}
-                      style={{ height: 180, width: screenWidth - 40 }}
+                      className="h-[180px] w-[screenWidth-40]"
                       resizeMode="cover"
                       paused={false} // Ensure playing status
                       onError={(error) => console.error('Middle video error:', error)}
@@ -127,10 +127,7 @@ export default function YeetVideos(){
                 {/* uservideo */}
                 <Video 
                 source={require('../assets/videos/t-1.mp4')} 
-                style={{
-                  width: screenWidth - 40,
-                  height: 180,
-                marginBottom:5}} 
+                className="w-[screenWidth-40] h-[180px] mb-[5px]"
                 resizeMode="cover" 
                 paused={false}
                 repeat={true}
@@ -139,12 +136,12 @@ export default function YeetVideos(){
 
 
                 {/* Row 3 */}
-                <View style={{ height: 63, width: '100%', borderColor: '#808080', marginBottom: 5, flexDirection: 'row', justifyContent: 'space-evenly' }}>
+                <View className="h-[63px] w-full border-custom-gray mb-[5px] flex-row justify-evenly ">
                   {visibleVideosRow3.map((index, i) => (
                     <Video
                       key={`row3-${index}-${i}`}
                       source={videos[index]}
-                      style={{ height: 60, width: 115 }}
+                      className="h-[60px] w-[115px]"
                       resizeMode="cover"
                       paused={paused}
                       onEnd={() => handleVideoEnd(i, 2)}
