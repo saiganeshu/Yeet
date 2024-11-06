@@ -1,5 +1,7 @@
 import { Text, View } from "react-native";
+import tailwind from 'tailwind-rn';
 import Header from "./header";
+
 
 export default function Group() {
     return (
