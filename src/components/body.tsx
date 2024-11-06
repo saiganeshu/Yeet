@@ -43,71 +43,71 @@ function Body() {
   return (
     isComponent ? (
       <View>
-        <View className={`border-b-3 border-gray-400 ${showCommentSection ? 'h-100' : 'h-84'} pt-1`}>
-          <View className="pl-2.5">
-            <View className="flex flex-row">
-              <Image source={require('../assets/images/Ellyse-Perry.png')} className="w-12.5 h-12.5 rounded-full border border-gray-800" />
+        <View style={tw`border-b-3 border-gray-400 ${showCommentSection ? 'h-100' : 'h-84'} pt-1`}>
+          <View style={tw`pl-2.5`}>
+            <View style={tw`flex flex-row`}>
+              <Image source={require('../assets/images/Ellyse-Perry.png')} style={tw`w-12 h-12 rounded-full border border-gray-800`} />
               <View>
-                <Text className="font-bold text-black text-sm pt-2 pl-2">Ellyse-Perry</Text>
-                <View className="flex flex-row">
-                  <Text className="text-xs bg-red-600 text-white rounded-md px-1 py-0.5 ml-2">Live</Text>
-                  <Fontisto name="world" size={13} color="#000000" className="pl-1 pt-0.5" />
+                <Text style={tw`font-bold text-black text-sm pt-2 pl-2`}>Ellyse-Perry</Text>
+                <View style={tw`flex flex-row`}>
+                  <Text style={tw`text-xs bg-red-600 text-white rounded-md px-1 py-0.5 ml-2`}>Live</Text>
+                  <Fontisto name="world" size={13} color="#000000" style={tw`pl-1 pt-0.5`} />
                 </View>
               </View>
             </View>
-            <View className="relative mt-1.5">
+            <View style={tw`relative mt-1.5`}>
               <Video
                 source={require('../assets/videos/t-1.mp4')}
-                className="w-full h-40"
+                style={tw`w-full h-40`}
                 resizeMode="cover"
                 paused={false}
                 repeat
               />
-              <View className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-start">
-                <Text className="text-white text-sm w-50 text-left">2024 Budget Discussions in Loksabha</Text>
+              <View style={tw`absolute top-0 left-0 right-0 bottom-0 flex justify-center items-start`}>
+                <Text style={tw`text-white text-sm w-50 text-left`}>2024 Budget Discussions in Loksabha</Text>
               </View>
             </View>
             <ParallaxVideoCarousel />
-            <View className="flex flex-row justify-evenly items-center mt-2">
+            <View style={tw`flex flex-row justify-evenly items-center mt-2`}>
               <View>
-                <TouchableOpacity onPress={handleLikePress} className="flex flex-row items-center">
+                <TouchableOpacity onPress={handleLikePress} style={tw`flex flex-row items-center`}>
                   <EvilIcons name="like" size={25} color="#000000" />
-                  <Text className="text-black mr-2">Like</Text>
+                  <Text style={tw`text-black mr-2`}>Like</Text>
                 </TouchableOpacity>
               </View>
               <View>
-                <TouchableOpacity onPress={handleCommentToggle} className="flex flex-row items-center">
+                <TouchableOpacity onPress={handleCommentToggle} style={tw`flex flex-row items-center`}>
                   <EvilIcons name="comment" size={25} color="#000000" />
-                  <Text className="text-black">Comment</Text>
+                  <Text style={tw`text-black`}>Comment</Text>
                 </TouchableOpacity>
               </View>
               <View>
-                <TouchableOpacity onPress={handleReplaceComponent} className="flex flex-row items-center">
-                  <Text className="text-black pr-1 text-lg">Y</Text>
-                  <Text className="text-black">Yeet</Text>
+                <TouchableOpacity onPress={handleReplaceComponent} style={tw`flex flex-row items-center`}>
+                  <Text style={tw`text-black pr-1 text-lg`}>Y</Text>
+                  <Text style={tw`text-black`}>Yeet</Text>
                 </TouchableOpacity>
               </View>
-              <View className="flex flex-row items-center">
-                <TouchableOpacity className="flex flex-row items-center">
+              <View style={tw`flex flex-row items-center`}>
+                <TouchableOpacity style={tw`flex flex-row items-center`}>
                   <Entypo name="share" size={15} color="#000000" />
-                  <Text className="text-black pl-1">Share</Text>
+                  <Text style={tw`text-black pl-1`}>Share</Text>
                 </TouchableOpacity>
               </View>
             </View>
 
             {showCommentSection && (
-              <View className="p-2 mt-2 bg-gray-100 flex flex-row justify-between">
+              <View style={tw`p-2 mt-2 bg-gray-100 flex flex-row justify-between`}>
                 <View>
                   <TextInput
                     placeholder="Add a comment..."
                     value={currentComment}
                     onChangeText={setCurrentComment}
-                    className="h-10 border border-gray-400 pl-2 w-50"
+                    style={tw`h-10 border border-gray-400 pl-2 w-50`}
                   />
                 </View>
                 <View>
-                  <TouchableOpacity onPress={handlePostComment} className="bg-red-600 p-2 rounded-md">
-                    <Text className="text-white">Post Comment</Text>
+                  <TouchableOpacity onPress={handlePostComment} style={tw`bg-red-600 p-2 rounded-md`}>
+                    <Text style={tw`text-white`}>Post Comment</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -115,20 +115,20 @@ function Body() {
           </View>
         </View>
 
-        <View className="h-80 w-full border-b-3 border-gray-400 overflow-hidden mt-2 pt-2">
-          <View className="flex flex-row mx-2">
-            <Image source={require('../assets/images/harleen.jpg')} className="w-12.5 h-12.5 rounded-full border border-gray-800" />
+        <View style={tw`h-80 w-full border-b-3 border-gray-400 overflow-hidden mt-2 pt-2`}>
+          <View style={tw`flex flex-row mx-2`}>
+            <Image source={require('../assets/images/harleen.jpg')} style={tw`w-12 h-12 rounded-full border border-gray-800`} />
             <View>
-              <Text className="font-bold text-black text-sm pt-2 pl-2">Harleen</Text>
-              <View className="flex flex-row">
-                <Text className="text-xs text-black pl-2">4d .</Text>
-                <Fontisto name="world" size={13} color="#000000" className="pl-1 pt-0.5" />
+              <Text style={tw`font-bold text-black text-sm pt-2 pl-2`}>Harleen</Text>
+              <View style={tw`flex flex-row`}>
+                <Text style={tw`text-xs text-black pl-2`}>4d .</Text>
+                <Fontisto name="world" size={13} color="#000000" style={tw`pl-1 pt-0.5`} />
               </View>
             </View>
           </View>
           <Video
             source={require('../assets/videos/t-3.mp4')}
-            className="w-full h-52 mt-2"
+            style={tw`w-full h-52 mt-2`}
             controls={true}
             resizeMode="cover"
             muted={true}
@@ -139,20 +139,20 @@ function Body() {
           <UserActions />
         </View>
 
-        <View className="h-78 w-full border-b-3 border-gray-400 overflow-hidden mt-2">
-          <View className="flex flex-row mx-2">
-            <Image source={require('../assets/images/Ellyse-Perry.png')} className="w-12.5 h-12.5 rounded-full border border-gray-800" />
+        <View style={tw`h-78 w-full border-b-3 border-gray-400 overflow-hidden mt-2`}>
+          <View style={tw`flex flex-row mx-2`}>
+            <Image source={require('../assets/images/Ellyse-Perry.png')} style={tw`w-12 h-12 rounded-full border border-gray-800`} />
             <View>
-              <Text className="font-bold text-black text-sm pt-2 pl-2">Harleen</Text>
-              <View className="flex flex-row">
-                <Text className="text-xs text-black pl-2">4d .</Text>
-                <Fontisto name="world" size={13} color="#000000" className="pl-1 pt-0.5" />
+              <Text style={tw`font-bold text-black text-sm pt-2 pl-2`}>Harleen</Text>
+              <View style={tw`flex flex-row`}>
+                <Text style={tw`text-xs text-black pl-2`}>4d .</Text>
+                <Fontisto name="world" size={13} color="#000000" style={tw`pl-1 pt-0.5`} />
               </View>
             </View>
           </View>
           <Video
             source={require('../assets/videos/t-1.mp4')}
-            className="w-full h-52 mt-2"
+            style={tw`w-full h-52 mt-2`}
             controls={true}
             resizeMode="cover"
             muted={true}
@@ -171,10 +171,9 @@ function Body() {
 
 export default Body;
 
-
 const styles = {
-  container: "ml-2.5 pt-16 h-24 w-[600px] relative justify-center items-center",
-  video: "w-[640px] h-[150px]",
-  overlay: "absolute top-0 left-0 right-0 bottom-0 justify-center items-start",
-  overlayText: "text-white text-sm w-52 text-left",
+  container: tw`ml-2.5 pt-16 h-24 w-[600px] relative justify-center items-center`,
+  video: tw`w-[640px] h-[150px]`,
+  overlay: tw`absolute top-0 left-0 right-0 bottom-0 justify-center items-start`,
+  overlayText: tw`text-white text-sm w-52 text-left`,
 };
