@@ -64,7 +64,7 @@ function Body() {
         <View className="pt-16 h-24 w-[600px] relative justify-center items-center">
         <Video 
             source={require('../assets/videos/t-1.mp4')} 
-            style={styles.video} 
+            className="w-[640px] h-[150px]" 
             resizeMode="cover" 
             paused={false}
             repeat
@@ -238,5 +238,5 @@ const styles = StyleSheet.create({
   video: {
     width: 640,
     height: 150,
-  }
+  },
 });

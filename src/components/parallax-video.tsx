@@ -21,9 +21,10 @@ interface CarouselItem {
     { id: 5, videoSrc: require('../assets/videos/t-5.mp4') },
   ];
   
-  function ParallaxVideoCarousel() {
+  function  ParallaxVideoCarousel() {
     
     const width = Dimensions.get('window').width;
+    const videoSize = 60;
     const [activeIndex, setActiveIndex] = React.useState(0);
     const carouselRef = React.useRef<any>(null);
 
@@ -52,7 +53,7 @@ interface CarouselItem {
           mode="horizontal-stack"
           modeConfig={{
             snapDirection: 'left',
-            stackInterval:100,
+            stackInterval:80,
           }}
           renderItem={({ item, index, animationValue }) => {
             const containerStyle = useAnimatedStyle(() => {
@@ -86,17 +87,29 @@ interface CarouselItem {
               <TouchableWithoutFeedback onPress={()=>{
                 console.log(index);
                 handleVideoPress(index)}}>
-              <Animated.View  className="pl-16 w-40 h-16 justify-center items-center" style={[containerStyle]}>
-                <Video
-                  source={item.videoSrc}
-                  className="w-full h-full rounded-lg"
-                  resizeMode="cover"
-                  paused={!isActive} 
-                  repeat={true} 
-                  controls={false} 
-                  muted={true}
-                />
-              </Animated.View>
+               <Animated.View
+                  style={[
+                    containerStyle,
+                    {
+                      width: videoSize,
+                      height: videoSize,
+                      borderRadius: videoSize / 2,
+                      overflow: 'hidden', // Crop the video to make it circular
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    },
+                  ]}
+                >
+                  <Video
+                    source={item.videoSrc}
+                    style={{ width: videoSize, height: videoSize }}
+                    resizeMode="cover"
+                    paused={true} // Ensure video is always paused
+                    repeat={true}
+                    controls={false}
+                    muted={true}
+                  />
+                </Animated.View>
               </TouchableWithoutFeedback>
             );
           }}
