@@ -37,8 +37,8 @@ interface CarouselItem {
     };
 
     return (
-      <View className="h-36 pt-7" style={{ width: width }}>
-      <View className="pt-10 justify-center items-center">
+      <View className="h-[65px]" style={{ width: width }}>
+      <View className="justify-center items-center">
         <Carousel
           ref={carouselRef}
           width={width}
@@ -85,7 +85,6 @@ interface CarouselItem {
   
             return (
               <TouchableWithoutFeedback onPress={()=>{
-                console.log(index);
                 handleVideoPress(index)}}>
                <Animated.View
                   style={[

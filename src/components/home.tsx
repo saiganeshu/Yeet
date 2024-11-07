@@ -1,11 +1,12 @@
-import { ScrollView, View } from "react-native";
+import { Dimensions, ScrollView, View } from "react-native";
 import Header from "./header";
 import Body from "./body";
 
  export default function Home(){
+    const screenWidth = Dimensions.get('window').width;
     return(
     
-        <View style={{flex:1}}>
+        <View style={{width:screenWidth}} className="flex">
             <Header/>
             <ScrollView>
                 <Body/>
