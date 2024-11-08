@@ -12,7 +12,7 @@ import { MainVideo } from '../utils/types';
 function Body() {
   const screenWidth = Dimensions.get('window').width;
   const [isComponent, setIsComponent] = useState(true);
-  const [likeCount, setLikeCount] = useState(2);
+  // const [likeCount, setLikeCount] = useState(2);
   const [liked, setLiked] = useState(false);
   const [showCommentSection, setShowCommentSection] = useState(false);
   const [comments, setComments] = useState<string[]>([]);
@@ -22,17 +22,17 @@ function Body() {
   const likeColor = liked ? '#077be0' : '#000000';
 
   useEffect(()=>{
-    axios.get('http://10.0.2.2:3000/api/allVideos/7').then((res)=>{
+    axios.get('http://10.0.2.2:3000/api/allVideos/1').then((res)=>{
       setMainVideoObject(res.data)
     })
-    setVideoPath('http://10.0.2.2:3000/api/allVideos/stream/2')
+    setVideoPath('http://10.0.2.2:3000/api/allVideos/stream/1')
   },[videoPath])
   const handleReplaceComponent = () => {
     setIsComponent(false); 
   };
 
   const handleLikePress = () => {
-    setLikeCount(prevCount => prevCount + 1);
+    // setLikeCount(prevCount => prevCount + 1);
     setLiked(prevLiked => !prevLiked);
   };
 
@@ -75,7 +75,7 @@ function Body() {
             repeat
         />
         <View className="absolute inset-0 justify-center items-start">
-            <Text className="text-white text-base w-50 text-left bg-black-transparent-60">{mainVideoObject.title}</Text>
+            {/* <Text className="text-white text-base w-50 text-left bg-black-transparent-60">{mainVideoObject.title?? ''}</Text> */}
         </View>
         </View>
 
@@ -84,18 +84,19 @@ function Body() {
         </View>
 
         <View className='pl-2'>
-          <Text className='font-semibold text-black text-sm'>{mainVideoObject.description}</Text>
+          {/* <Text className='font-semibold text-black text-sm'>{mainVideoObject.description ?? ''}</Text> */}
         </View>
 
       {/* Action Buttons */}
       <View className="flex-row justify-between items-center mb-2 pl-5 pr-5 pt-2">
         <TouchableOpacity onPress={handleLikePress} className="flex-row items-center">
-          <EvilIcons name="like" size={24} color="#000" />
-          <Text className="ml-1 text-black">{likeCount}</Text>
+          <EvilIcons name="like" size={24} color={likeColor} />
+          <Text className=" text-black" style={{color:likeColor}}>Like</Text>
+          {/* <Text className="ml-1 text-black">{likeCount}</Text> */}
         </TouchableOpacity>
         <TouchableOpacity onPress={() => setShowCommentSection(!showCommentSection)} className="flex-row items-center">
           <EvilIcons name="comment" size={24} color="#000" />
-          <Text className="ml-1 text-black">Comment</Text>
+          <Text className="text-black">Comment</Text>
         </TouchableOpacity>
         <TouchableOpacity className="flex-row items-center" onPress={handleReplaceComponent}>
           <Text className="text-lg font-semibold text-black">Y</Text>
