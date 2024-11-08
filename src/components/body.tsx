@@ -1,8 +1,7 @@
 import  { useEffect, useState } from 'react';
-import { Text, View, TouchableOpacity, Image, TextInput, Alert, FlatList, StyleSheet, Dimensions } from 'react-native';
+import { Text, View, TouchableOpacity, Image, TextInput, FlatList, Dimensions } from 'react-native';
 import ParallaxVideoCarousel from './parallax-video';
 import Video from 'react-native-video';
-import UserActions from './userActions';
 import Fontisto from "react-native-vector-icons/Fontisto"
 import YeetCompo from './yeetComponent';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
@@ -12,17 +11,18 @@ import { MainVideo } from '../utils/types';
 
 function Body() {
   const screenWidth = Dimensions.get('window').width;
-  const [paused, setPaused] = useState(false);
   const [isComponent, setIsComponent] = useState(true);
   const [likeCount, setLikeCount] = useState(2);
+  const [liked, setLiked] = useState(false);
   const [showCommentSection, setShowCommentSection] = useState(false);
   const [comments, setComments] = useState<string[]>([]);
   const [currentComment, setCurrentComment] = useState<string>('');
   const [mainVideoObject, setMainVideoObject] = useState<MainVideo>({})
   const [videoPath,setVideoPath] = useState<string>('')
+  const likeColor = liked ? '#077be0' : '#000000';
 
   useEffect(()=>{
-    axios.get('http://10.0.2.2:3000/api/allVideos/2').then((res)=>{
+    axios.get('http://10.0.2.2:3000/api/allVideos/7').then((res)=>{
       setMainVideoObject(res.data)
     })
     setVideoPath('http://10.0.2.2:3000/api/allVideos/stream/2')
@@ -33,14 +33,11 @@ function Body() {
 
   const handleLikePress = () => {
     setLikeCount(prevCount => prevCount + 1);
+    setLiked(prevLiked => !prevLiked);
   };
 
   const handleCommentToggle = () => {
     setShowCommentSection(!showCommentSection);
-  };
-
-  const handleVideoEnd = () => {
-    setPaused(true);
   };
 
   const handlePostComment = () => {
@@ -69,7 +66,7 @@ function Body() {
       {/* Video Title */}
 
       {/* Video Player */}
-      <View className='h-44 rounded-lg overflow-hidden self-center' style={{ width: screenWidth}}>
+      <View className='h-40 rounded-lg overflow-hidden self-center' style={{ width: screenWidth}}>
         <Video 
             source={{uri:videoPath}} 
             className="w-[640px] h-[150px]"
@@ -86,13 +83,13 @@ function Body() {
           <ParallaxVideoCarousel />
         </View>
 
-        <View className='pl-5'>
-          <Text className='text-sm font-black'>{mainVideoObject.description}</Text>
+        <View className='pl-2'>
+          <Text className='font-semibold text-black text-sm'>{mainVideoObject.description}</Text>
         </View>
 
       {/* Action Buttons */}
-      <View className="flex-row justify-between items-center mb-2 pl-5 pr-5">
-        <TouchableOpacity onPress={() => {  setLikeCount(likeCount + 1); }} className="flex-row items-center">
+      <View className="flex-row justify-between items-center mb-2 pl-5 pr-5 pt-2">
+        <TouchableOpacity onPress={handleLikePress} className="flex-row items-center">
           <EvilIcons name="like" size={24} color="#000" />
           <Text className="ml-1 text-black">{likeCount}</Text>
         </TouchableOpacity>
@@ -141,11 +138,3 @@ function Body() {
 }
 
 export default Body;
-
-
-const styles = StyleSheet.create({
-  video: {
-    width: 640,
-    height: 150,
-  },
-});

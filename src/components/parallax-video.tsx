@@ -19,6 +19,9 @@ interface CarouselItem {
     { id: 3, videoSrc: require('../assets/videos/t-3.mp4') },
     { id: 4, videoSrc: require('../assets/videos/t-4.mp4') },
     { id: 5, videoSrc: require('../assets/videos/t-5.mp4') },
+    { id: 6, videoSrc: require('../assets/videos/t-1.mp4') },
+    { id: 7, videoSrc: require('../assets/videos/t-2.mp4') },
+    { id: 8, videoSrc: require('../assets/videos/t-3.mp4') },
   ];
   
   function  ParallaxVideoCarousel() {
@@ -37,7 +40,7 @@ interface CarouselItem {
     };
 
     return (
-      <View className="h-[65px]" style={{ width: width }}>
+      <View className="h-[70px]" style={{ width: width }}>
       <View className="justify-center items-center">
         <Carousel
           ref={carouselRef}
@@ -53,7 +56,7 @@ interface CarouselItem {
           mode="horizontal-stack"
           modeConfig={{
             snapDirection: 'left',
-            stackInterval:80,
+            stackInterval:60,
           }}
           renderItem={({ item, index, animationValue }) => {
             const containerStyle = useAnimatedStyle(() => {
